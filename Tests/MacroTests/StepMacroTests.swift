@@ -18,7 +18,7 @@ import StepMacro
         func step1(during execution: Execution, stopStep2a: Bool = false) {
             #expect(execution.level == 1)
             execution.optional(named: "step2", description: "we usually do not step2") {
-                #expect(execution.level == 2) // .........................
+                #expect(execution.level == 2)
                 step2a(during: execution, stop: stopStep2a)
                 execution.doing("calling step2b in step1") {
                     #expect(execution.level == 3)

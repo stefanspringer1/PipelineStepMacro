@@ -61,19 +61,22 @@ public struct StepMacro: BodyMacro {
         providingBodyFor declaration: some DeclSyntaxProtocol & WithOptionalCodeBlockSyntax,
         in context: some MacroExpansionContext
     ) throws -> [CodeBlockItemSyntax] {
+        guard let body = declaration.body else { return [] }
+        let newBody = CodeIndentingRewriter(style: .unindentSpaces(4)).rewrite(body).as(CodeBlockSyntax.self)
+//        let newBody = AutoGuardSelfRewriter().rewrite(body.recursivelyTrimmed).as(CodeBlockSyntax.self)
         if let arguments = node.arguments {
-            [
+            return [
                 """
                 execution.effectuate(\(raw: arguments), checking: StepID(crossModuleFileDesignation: #file, functionSignature: #function)) {
-                \(declaration.body!.statements, location: context.location(of: declaration.body!.statements, at: .beforeLeadingTrivia, filePathMode: .filePath), lineOffset: 1)
+                \((newBody ?? body).statements, location: context.location(of: declaration.body!.statements, at: .beforeLeadingTrivia, filePathMode: .filePath), lineOffset: 1)
                 }
                 """
             ]
         } else {
-            [
+            return [
                 """
                 execution.effectuate(checking: StepID(crossModuleFileDesignation: #file, functionSignature: #function)) {
-                \(declaration.body!.statements, location: context.location(of: declaration.body!.statements, at: .beforeLeadingTrivia, filePathMode: .filePath), lineOffset: 1)
+                \((newBody ?? body).statements, location: context.location(of: declaration.body!.statements, at: .beforeLeadingTrivia, filePathMode: .filePath), lineOffset: 1)
                 }
                 """
             ]
