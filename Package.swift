@@ -14,8 +14,8 @@ let package = Package(
     ],
     dependencies: [
         .package(url: "https://github.com/apple/swift-syntax.git", from: "600.0.1"),
-        //.package(url: "https://github.com/stefanspringer1/SwiftWorkflow", from: "3.0.0"),
-        .package(path: "../Pipeline"),
+        .package(url: "https://github.com/stefanspringer1/Pipeline.git", from: "0.0.45"),
+//        .package(path: "../Pipeline"),
     ],
     targets: [
         .macro(

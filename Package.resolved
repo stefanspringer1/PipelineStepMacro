@@ -10,6 +10,15 @@
       }
     },
     {
+      "identity" : "pipeline",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/stefanspringer1/Pipeline.git",
+      "state" : {
+        "revision" : "fa80fcdffb8d394c1d80549e10d08fa5fee54e18",
+        "version" : "0.0.45"
+      }
+    },
+    {
       "identity" : "swift-syntax",
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/apple/swift-syntax.git",
