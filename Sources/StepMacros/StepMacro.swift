@@ -6,6 +6,24 @@ import SwiftSyntaxMacros
 import SwiftSyntax
 import SwiftSyntaxMacros
 
+import Foundation
+
+/// An error with a description.
+///
+/// When printing such an error, its descrition is printed.
+struct PipelineStepError: LocalizedError, CustomStringConvertible {
+
+    private let message: String
+
+    public init(_ message: String) {
+        self.message = message
+    }
+    
+    public var description: String { message }
+    
+    public var errorDescription: String? { message }
+}
+
 //public struct StepMacro: BodyMacro {
 //    public static func expansion(
 //        of node: AttributeSyntax,
@@ -126,13 +144,23 @@ public struct StepMacro: BodyMacro {
         providingBodyFor declaration: some DeclSyntaxProtocol & WithOptionalCodeBlockSyntax,
         in context: some MacroExpansionContext
     ) throws -> [CodeBlockItemSyntax] {
-        return [
-            """
-            execution.effectuate(checking: StepID(crossModuleFileDesignation: #file, functionSignature: #function)) {
-            \(declaration.body!.statements, location: context.location(of: declaration.body!.statements, at: .beforeLeadingTrivia, filePathMode: .filePath), lineOffset: 1)
-            }
-            """
-        ]
+        if let arguments = node.arguments {
+            [
+                """
+                execution.effectuate(\(raw: arguments), checking: StepID(crossModuleFileDesignation: #file, functionSignature: #function)) {
+                \(declaration.body!.statements, location: context.location(of: declaration.body!.statements, at: .beforeLeadingTrivia, filePathMode: .filePath), lineOffset: 1)
+                }
+                """
+            ]
+        } else {
+            [
+                """
+                execution.effectuate(checking: StepID(crossModuleFileDesignation: #file, functionSignature: #function)) {
+                \(declaration.body!.statements, location: context.location(of: declaration.body!.statements, at: .beforeLeadingTrivia, filePathMode: .filePath), lineOffset: 1)
+                }
+                """
+            ]
+        }
     }
     
 }
