@@ -1,0 +1,23 @@
+{
+  "pins" : [
+    {
+      "identity" : "localization",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/stefanspringer1/Localization.git",
+      "state" : {
+        "revision" : "ff0e77f2d1cefc45772fd10e51c7a032eb92a26e",
+        "version" : "0.0.4"
+      }
+    },
+    {
+      "identity" : "swift-syntax",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/apple/swift-syntax.git",
+      "state" : {
+        "revision" : "0687f71944021d616d34d922343dcef086855920",
+        "version" : "600.0.1"
+      }
+    }
+  ],
+  "version" : 2
+}
