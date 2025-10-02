@@ -22,7 +22,7 @@ you just write:
 
 The function must have the argument with inner-function name `execution` of type `Execution`.
 
-You can also provide a description of the test as argument to `@Step`:
+You can also provide a description of the test as an argument to `@Step`:
 
 ```swift
 @Step("printing hello")
@@ -33,4 +33,4 @@ func myGreeting(during execution: Execution) {
 
 See the included test for a complete example.
 
-The package some code from [SwiftLint](https://github.com/realm/SwiftLint) which is public under the [MIT License](https://github.com/realm/SwiftLint/blob/main/LICENSE).
+The package is public under the [Apache License Version 2.0 with Runtime Library Exception](https://github.com/stefanspringer1/PipelineStepMacro/blob/main/LICENSE). It contains some code from [SwiftLint](https://github.com/realm/SwiftLint) which is published under the [MIT License](https://github.com/realm/SwiftLint/blob/main/LICENSE).
