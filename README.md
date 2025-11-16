@@ -2,6 +2,15 @@
 
 This package implements the macro `@Step` for functions that should act as steps according to the [Pipeline](https://github.com/stefanspringer1/Pipeline) package.
 
+---
+**NOTE**
+
+**This package is deprecated** because:
+
+- The package is now integrated into the [Pipeline](https://github.com/stefanspringer1/Pipeline) package.
+
+---
+
 Instead of writing:
 
 ```swift
