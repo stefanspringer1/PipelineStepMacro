@@ -185,4 +185,102 @@ import StepMacro
         
     }
     
+    // This test should provide a larger function to see if
+    // when adding an error into the code, the replacement of
+    // the error is correct and effcient.
+    // (There might be a better sample code for that.)
+    func testEditingLargeFunction() throws {
+        
+        @Step
+        func f(n: Int, echo: Bool, during execution: Execution) {
+            switch n {
+            case 1:
+                if echo {
+                    print("one")
+                }
+            case 2:
+                if echo {
+                    print("two")
+                }
+            case 3:
+                if echo {
+                    print("three")
+                }
+            case 4:
+                if echo {
+                    print("four")
+                }
+            case 5:
+                if echo {
+                    print("five")
+                }
+            case 6:
+                if echo {
+                    print("six")
+                }
+            case 7:
+                if echo {
+                    print("seven")
+                }
+            case 8:
+                if echo {
+                    print("eight")
+                }
+            case 9:
+                if echo {
+                    print("nine")
+                }
+            case 10:
+                if echo {
+                    print("ten")
+                }
+            case 11:
+                if echo {
+                    print("eleven")
+                }
+            case 12:
+                if echo {
+                    print("twelve")
+                }
+            case 13:
+                if echo {
+                    print("thirteen")
+                }
+            case 14:
+                if echo {
+                    print("fourteen")
+                }
+            case 15:
+                if echo {
+                    print("fifteen")
+                }
+            case 16:
+                if echo {
+                    print("sixteen")
+                }
+            case 17:
+                if echo {
+                    print("seventeen")
+                }
+            case 18:
+                if echo {
+                    print("eighteen")
+                }
+            case 19:
+                if echo {
+                    print("nineteen")
+                }
+            case 20:
+                if echo {
+                    print("twenty")
+                }
+            default:
+                if echo {
+                    print("too many")
+                }
+            }
+        }
+        
+    }
+    
 }
